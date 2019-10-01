@@ -25,7 +25,8 @@
                     <h3><?php echo  $_SESSION["user"]["name"] ?></h3>
                     <p><?php echo $_SESSION["user"]["email"] ?></p>
 
-                    <p><a href="">Edit Profil</a></p>
+                    <p><a href="home.php">Home</a>
+                    <p><a href="edit.php">Edit Profil</a></p>
                     <p><a href="logout.php">Logout</a></p>
                 </div>
             </div>

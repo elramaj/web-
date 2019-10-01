@@ -16,10 +16,9 @@
                 <div class="row">
                     <div class="col-md-8">
 
-                    <p>&larr; <a href="index.php">Home</a></p>
-                    <p>&rarr; <a href="timeline.php">Timeline</a></p>
+                    <p>&larr; <a href="index.php">Beranda</a></p>
 
-                        <h1>Siapakah Kita?</h1>
+                        <h1>Siapa Kami?</h1>
                     </div>
                 </div>
             </div>
