@@ -21,7 +21,7 @@
                 <div class="card-body text-center">
 
                     <img class="img img-responsive rounded-circle mb-3" width="160" src="img/<?php echo $_SESSION['user']['photo'] ?>" />
-                    
+
                     <h3><?php echo  $_SESSION["user"]["name"] ?></h3>
                     <p><?php echo $_SESSION["user"]["email"] ?></p>
 
@@ -31,31 +31,43 @@
                 </div>
             </div>
 
-            
+
         </div>
 
 
         <div class="col-md-8">
 
-            <form action="" method="post" />
+            <form action="kirim.php" method="post" />
                 <div class="form-group">
-                    <textarea style="resize:none;height:100px;" class="form-control" placeholder="Apa yang kamu pikirkan?"></textarea>
+                    <input type="hidden" name="id_user" value="<?= $_SESSION["user"]["id"] ?>">
+                    <textarea style="resize:none;height:100px;" class="form-control" name="timeline" placeholder="Apa yang kamu pikirkan?"></textarea>
                 </div>
                 <div class="form-group">
-                <button type="submit">Post</button>
+                <button class="btn btn-info" type="submit">Post</button>
                 </div>
             </form>
 
-            <?php for($i=0; $i < 3; $i++){ ?>
-            <div class="card mb-3">
+            <?php
+
+            $id_user = $_SESSION["user"]["id"];
+            $sql = $db->query("SELECT * FROM timeline WHERE id_user='$id_user'");
+            // $stmt = $db->prepare($sql);
+
+
+            // $data = mysqli_fetch_array($stmt);
+            while ($data = $sql->fetch(PDO::FETCH_ASSOC)) {
+            ?>
+
+              <div class="card mb-3">
                 <div class="card-body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis veritatis nemo ad recusandae labore nihil iure qui eum consequatur, officiis facere quis sunt tempora impedit ullam reprehenderit facilis ex amet!
+                  <?= $data['isi_timeline'] ?>
                 </div>
-            </div>
-            <?php } ?>
-            
+              </div>
+            <?php
+            }
+            ?>
         </div>
-    
+
     </div>
 </div>
 
